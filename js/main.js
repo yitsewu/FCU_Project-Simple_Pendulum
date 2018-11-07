@@ -22,22 +22,13 @@ window.onload = function() {
         friction: 0.06,
         render: {
             options: {
+                background: './image/test3.png',
                 showAngleIndicator: true,//角度指示
                 isStatic: true,
                 wireframes: false,
-                width: window.innerWidth*.59,//59%
-                height: window.innerHeight*.8,//80% 
+                width: window.innerWidth,//59%
+                height: window.innerWidth,//80% 
                 visible: false
-            }
-        }
-    });
-    var Protractor =  Bodies.rectangle(engine.render.options.width/2, 1, 60, 60, {
-        density: 100,
-        friction: 0,
-        frictionAir: 0,
-        render: {
-            sprite: {
-                texture: './image/Protractor.png'
             }
         }
     });
@@ -78,7 +69,7 @@ window.onload = function() {
     var mouseConstraint = MouseConstraint.create(engine);
 
     // add all of the bodies to the world
-    World.add(engine.world, [ball, ballConstraint, mouseConstraint, Protractor]);
+    World.add(engine.world, [ball, ballConstraint, mouseConstraint]);
 
     // Fire up the 2D engine
     Engine.run(engine);
@@ -122,9 +113,7 @@ window.onload = function() {
             }
         })
     }
-    function setState(){
-    }
-    
+
     $('#submit-btn').click(function(){
         getState();
         $('#state').html(JSON.stringify(state));
