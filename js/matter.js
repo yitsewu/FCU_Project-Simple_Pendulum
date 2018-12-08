@@ -8637,10 +8637,11 @@ var Vector = require('../geometry/Vector');
 
         if (/(jpg|gif|png)$/.test(background))
             cssBackground = 'url(' + background + ')';
-
         render.canvas.style.background = cssBackground;
         render.canvas.style.backgroundSize = "contain";
+        render.canvas.style.backgroundRepeat = "no-repeat";
         render.currentBackground = background;
+        
     };
 
     /*
